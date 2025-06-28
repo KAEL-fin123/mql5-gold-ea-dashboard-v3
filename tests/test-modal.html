@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EA弹窗测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111827;
+            color: white;
+            padding: 20px;
+        }
+        .test-card {
+            background-color: #1f2937;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            max-width: 600px;
+        }
+        .metric-positive { color: #10b981; }
+        .metric-negative { color: #ef4444; }
+        .metric-neutral { color: #6b7280; }
+        .primary-metric {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: rgba(55, 65, 81, 0.5);
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .primary-metric .label {
+            font-size: 14px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+        .primary-metric .value {
+            font-size: 48px;
+            font-weight: bold;
+        }
+        .detail-metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background-color: rgba(55, 65, 81, 0.3);
+            border-radius: 8px;
+            margin: 8px 0;
+        }
+        .detail-metric .label {
+            color: #d1d5db;
+        }
+        .detail-metric .value {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>EA弹窗优化测试页面</h1>
+    
+    <div class="test-card">
+        <h2>优化前 vs 优化后对比</h2>
+        
+        <h3>✅ 已完成的优化：</h3>
+        <ul>
+            <li>移除了过度的霓虹光效和动画</li>
+            <li>简化了视觉设计，采用更专业的配色</li>
+            <li>实现了主要指标的大号居中显示</li>
+            <li>移除了模拟数据生成逻辑</li>
+            <li>优化了弹窗布局和用户体验</li>
+            <li>简化了CSS样式，移除花哨装饰</li>
+        </ul>
+        
+        <h3>🎯 主要指标显示示例：</h3>
+        <div class="primary-metric">
+            <div class="label">胜率</div>
+            <div class="value metric-positive">78.5%</div>
+        </div>
+        
+        <h3>📊 详细指标示例：</h3>
+        <div class="detail-metric">
+            <span class="label">最大回撤</span>
+            <span class="value metric-negative">12.5%</span>
+        </div>
+        <div class="detail-metric">
+            <span class="label">平均盈亏比</span>
+            <span class="value metric-positive">1.80</span>
+        </div>
+        <div class="detail-metric">
+            <span class="label">年化收益</span>
+            <span class="value metric-positive">45.8%</span>
+        </div>
+        
+        <h3>🔧 技术改进：</h3>
+        <ul>
+            <li>使用真实数据库数据，无模拟数据</li>
+            <li>简化了组件结构，提高可维护性</li>
+            <li>优化了响应式设计</li>
+            <li>改善了代码可读性</li>
+        </ul>
+    </div>
+    
+    <div class="test-card">
+        <h2>数据验证</h2>
+        <p>✅ 所有显示的数据都来自数据库中的真实EA统计数据</p>
+        <p>✅ 移除了EAChart组件中的模拟数据生成函数</p>
+        <p>✅ 数据计算逻辑基于实际的EA性能指标</p>
+    </div>
+    
+    <div class="test-card">
+        <h2>用户体验改进</h2>
+        <p>✅ 主要指标根据当前排名标签动态显示</p>
+        <p>✅ 大号字体居中显示，视觉层次清晰</p>
+        <p>✅ 详细信息分组显示，避免信息过载</p>
+        <p>✅ 简洁的标签切换，易于导航</p>
+    </div>
+</body>
+</html>

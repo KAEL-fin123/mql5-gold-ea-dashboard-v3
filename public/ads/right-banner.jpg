@@ -1,0 +1,50 @@
+<svg width="300" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00BFFF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1E90FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0066CC;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bgGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d2d2d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="600" fill="url(#bgGradient2)" rx="10"/>
+  
+  <!-- Border -->
+  <rect x="2" y="2" width="296" height="596" fill="none" stroke="url(#blueGradient)" stroke-width="2" rx="8"/>
+  
+  <!-- Title -->
+  <text x="150" y="50" text-anchor="middle" fill="url(#blueGradient)" font-family="Arial, sans-serif" font-size="24" font-weight="bold">智能EA系统</text>
+  
+  <!-- Subtitle -->
+  <text x="150" y="80" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="14">自动化交易解决方案</text>
+  
+  <!-- Robot icon -->
+  <rect x="120" y="120" width="60" height="60" fill="url(#blueGradient)" rx="10"/>
+  <circle cx="135" cy="140" r="5" fill="#1a1a1a"/>
+  <circle cx="165" cy="140" r="5" fill="#1a1a1a"/>
+  <rect x="140" y="155" width="20" height="10" fill="#1a1a1a" rx="2"/>
+  
+  <!-- Features -->
+  <text x="30" y="250" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">✓ 24小时自动交易</text>
+  <text x="30" y="280" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">✓ 风险控制系统</text>
+  <text x="30" y="310" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">✓ 实时监控</text>
+  <text x="30" y="340" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">✓ 策略优化</text>
+  
+  <!-- Performance -->
+  <rect x="20" y="380" width="260" height="80" fill="url(#blueGradient)" rx="5"/>
+  <text x="150" y="405" text-anchor="middle" fill="#1a1a1a" font-family="Arial, sans-serif" font-size="18" font-weight="bold">月收益率</text>
+  <text x="150" y="430" text-anchor="middle" fill="#1a1a1a" font-family="Arial, sans-serif" font-size="24" font-weight="bold">15-25%</text>
+  <text x="150" y="450" text-anchor="middle" fill="#1a1a1a" font-family="Arial, sans-serif" font-size="14">历史回测数据</text>
+  
+  <!-- CTA Button -->
+  <rect x="50" y="500" width="200" height="50" fill="none" stroke="url(#blueGradient)" stroke-width="2" rx="25"/>
+  <text x="150" y="530" text-anchor="middle" fill="url(#blueGradient)" font-family="Arial, sans-serif" font-size="16" font-weight="bold">免费试用</text>
+  
+  <!-- Footer -->
+  <text x="150" y="580" text-anchor="middle" fill="#888888" font-family="Arial, sans-serif" font-size="10">历史业绩不代表未来收益</text>
+</svg>

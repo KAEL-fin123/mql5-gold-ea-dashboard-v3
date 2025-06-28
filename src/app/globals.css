@@ -1,0 +1,844 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.625rem;
+  /* 现代化浅色主题 - 基于品牌紫色 */
+  --background: 0.99 0.002 280;          /* 纯净白色背景 */
+  --foreground: 0.15 0.008 285;          /* 深色文字 */
+  --card: 0.98 0.002 280;                /* 卡片白色背景 */
+  --card-foreground: 0.15 0.008 285;
+  --popover: 0.98 0.002 280;
+  --popover-foreground: 0.15 0.008 285;
+  --primary: 0.55 0.25 280;              /* 品牌紫色主色 */
+  --primary-foreground: 0.98 0.002 280;
+  --secondary: 0.95 0.005 285;           /* 浅灰次要色 */
+  --secondary-foreground: 0.25 0.01 285;
+  --muted: 0.96 0.003 285;               /* 静音背景 */
+  --muted-foreground: 0.45 0.015 285;
+  --accent: 0.45 0.30 290;               /* 品牌深紫色强调 */
+  --accent-foreground: 0.98 0.002 280;
+  --destructive: 0.65 0.25 22;           /* 错误红色 */
+  --destructive-foreground: 0.98 0.002 280;
+  --border: 0.90 0.005 285;              /* 边框颜色 */
+  --input: 0.96 0.003 285;               /* 输入框背景 */
+  --ring: 0.55 0.25 280;                 /* 焦点环 */
+  --chart-1: 0.55 0.25 280;              /* 图表颜色 */
+  --chart-2: 0.45 0.30 290;
+  --chart-3: 0.65 0.25 22;
+  --chart-4: 0.60 0.20 140;
+  --chart-5: 0.65 0.18 162;
+  --sidebar: 0.98 0.002 280;
+  --sidebar-foreground: 0.15 0.008 285;
+  --sidebar-primary: 0.55 0.25 280;
+  --sidebar-primary-foreground: 0.98 0.002 280;
+  --sidebar-accent: 0.95 0.005 285;
+  --sidebar-accent-foreground: 0.25 0.01 285;
+  --sidebar-border: 0.90 0.005 285;
+  --sidebar-ring: 0.55 0.25 280;
+
+  /* 排行榜前三名特殊颜色 - 浅色主题优化 */
+  --rank-1-bg: linear-gradient(135deg, rgb(255, 215, 0), rgb(255, 193, 7));     /* 金色冠军 */
+  --rank-1-border: rgb(255, 215, 0);
+  --rank-1-glow: rgba(255, 215, 0, 0.2);
+  --rank-2-bg: linear-gradient(135deg, rgb(192, 192, 192), rgb(169, 169, 169)); /* 银色亚军 */
+  --rank-2-border: rgb(192, 192, 192);
+  --rank-2-glow: rgba(192, 192, 192, 0.2);
+  --rank-3-bg: linear-gradient(135deg, rgb(205, 127, 50), rgb(184, 115, 51));   /* 铜色季军 */
+  --rank-3-border: rgb(205, 127, 50);
+  --rank-3-glow: rgba(205, 127, 50, 0.2);
+}
+
+.dark {
+  /* BBTrading 品牌主题 - 基于 rgb(64, 39, 239) 到 rgb(119, 0, 255) 渐变 */
+  --background: 0.08 0.005 285.823;  /* 深色背景 */
+  --foreground: 0.95 0.01 280;       /* 浅色前景 */
+  --card: 0.12 0.008 285.885;        /* 深色卡片 */
+  --card-foreground: 0.95 0.01 280;
+  --popover: 0.12 0.008 285.885;
+  --popover-foreground: 0.95 0.01 280;
+  --primary: 0.55 0.25 280;          /* 品牌紫色主色 rgb(64, 39, 239) */
+  --primary-foreground: 0.98 0.01 280;
+  --secondary: 0.18 0.008 286.033;   /* 深灰次要色 */
+  --secondary-foreground: 0.95 0.01 280;
+  --muted: 0.18 0.008 286.033;
+  --muted-foreground: 0.65 0.02 286.067;
+  --accent: 0.45 0.30 290;           /* 品牌深紫色 rgb(119, 0, 255) */
+  --accent-foreground: 0.98 0.01 280;
+  --destructive: 0.65 0.25 22;       /* 错误红色 */
+  --border: 0.25 0.01 285;     /* 半透明边框 */
+  --input: 0.15 0.008 285;     /* 输入框背景 */
+  --ring: 0.55 0.25 280;             /* 品牌紫色焦点环 */
+  --chart-1: 0.55 0.25 280;          /* 品牌紫色图表 */
+  --chart-2: 0.45 0.30 290;          /* 品牌深紫色图表 */
+  --chart-3: 0.65 0.25 22;           /* 错误红色图表 */
+  --chart-4: 0.60 0.20 200;          /* 蓝色图表 */
+  --chart-5: 0.65 0.18 162;          /* 绿色图表 */
+  --sidebar: 0.10 0.006 285.885;
+  --sidebar-foreground: 0.95 0.01 280;
+  --sidebar-primary: 0.55 0.25 280;
+  --sidebar-primary-foreground: 0.98 0.01 280;
+  --sidebar-accent: 0.18 0.008 286.033;
+  --sidebar-accent-foreground: 0.95 0.01 280;
+  --sidebar-border: 0.25 0.01 285 / 0.2;
+  --sidebar-ring: 0.55 0.25 280;
+
+  /* 排行榜前三名特殊颜色 */
+  --rank-1-bg: linear-gradient(135deg, rgb(255, 215, 0), rgb(255, 193, 7));     /* 金色冠军 */
+  --rank-1-border: rgb(255, 215, 0);
+  --rank-1-glow: rgba(255, 215, 0, 0.3);
+  --rank-2-bg: linear-gradient(135deg, rgb(192, 192, 192), rgb(169, 169, 169)); /* 银色亚军 */
+  --rank-2-border: rgb(192, 192, 192);
+  --rank-2-glow: rgba(192, 192, 192, 0.3);
+  --rank-3-bg: linear-gradient(135deg, rgb(205, 127, 50), rgb(184, 115, 51));   /* 铜色季军 */
+  --rank-3-border: rgb(205, 127, 50);
+  --rank-3-glow: rgba(205, 127, 50, 0.3);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  *:focus-visible {
+    @apply ring-2 ring-primary/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    min-height: 100vh;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html:not(.dark) {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+}
+
+@layer components {
+  /* 简化的金融卡片样式 */
+  .financial-card {
+    @apply bg-card border border-border rounded-lg p-6 shadow-sm;
+  }
+
+  /* 简化的数据指标样式 */
+  .metric-positive {
+    @apply text-green-600;
+  }
+
+  .metric-negative {
+    @apply text-red-600;
+  }
+
+  .metric-neutral {
+    @apply text-muted-foreground;
+  }
+
+  /* 品牌渐变文字 - 浅色主题 - 高级金色渐变 */
+  .gradient-text {
+    background: linear-gradient(135deg, #B8860B, #DAA520, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+  }
+
+  /* 菜单栏渐变样式 */
+  .header-gradient {
+    background: linear-gradient(135deg, #4027EF, #7700FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* 对联广告渐变样式 */
+  .sidebar-ad-gradient {
+    background: linear-gradient(135deg, #4027EF, #7700FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* SVG图标渐变样式 */
+  .icon-gradient {
+    color: #4027EF;
+    background: linear-gradient(135deg, #4027EF, #7700FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* SVG图标渐变色 - 使用stroke属性 */
+  .icon-gradient svg {
+    stroke: url(#icon-gradient-def);
+  }
+
+  /* 深色主题下的样式 */
+  .dark .financial-card {
+    @apply bg-gray-900 border-gray-700;
+  }
+
+  .dark .metric-positive {
+    @apply text-green-400;
+  }
+
+  .dark .metric-negative {
+    @apply text-red-400;
+  }
+
+  .dark .metric-neutral {
+    @apply text-gray-400;
+  }
+
+  /* 品牌渐变文字 - 深色主题 - 高级金色渐变 */
+  .dark .gradient-text {
+    background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00, #DAA520);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+  }
+
+  /* 深色主题菜单栏渐变样式 */
+  .dark .header-gradient {
+    background: linear-gradient(135deg, #4027EF, #7700FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* 深色主题对联广告渐变样式 */
+  .dark .sidebar-ad-gradient {
+    background: linear-gradient(135deg, #4027EF, #7700FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* 深色主题SVG图标渐变样式 */
+  .dark .icon-gradient {
+    color: #4027EF;
+    background: linear-gradient(135deg, #4027EF, #7700FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* 深色主题SVG图标渐变色 */
+  .dark .icon-gradient svg {
+    stroke: url(#icon-gradient-def);
+  }
+
+  /* 滚动条样式 */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: oklch(0.18 0.008 286.033);
+    border-radius: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: oklch(0.65 0.18 162);
+    border-radius: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.70 0.20 162);
+  }
+
+  /* 简化的EA排行榜卡片 */
+  .ea-card {
+    @apply bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-200;
+    @apply flex flex-col shadow-sm hover:shadow-md;
+    min-height: 280px;
+  }
+
+  .ea-card:hover {
+    transform: translateY(-1px);
+  }
+
+  /* 深色主题下的EA卡片 */
+  .dark .ea-card {
+    @apply bg-gray-900 border-gray-700 hover:border-blue-500;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+  }
+
+  .dark .ea-card:hover {
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.3);
+  }
+
+  /* EA卡片指标颜色类 - 按照弹窗配色 */
+  .metric-positive {
+    color: rgb(22 163 74 / var(--tw-text-opacity, 1)) !important;
+  }
+
+  .metric-negative {
+    color: rgb(239 68 68 / var(--tw-text-opacity, 1)) !important;
+  }
+
+  .metric-neutral {
+    color: rgb(22 163 74 / var(--tw-text-opacity, 1)) !important;
+  }
+
+  /* 深色主题下的EA卡片指标颜色 */
+  .dark .metric-positive {
+    color: rgb(22 163 74 / var(--tw-text-opacity, 1)) !important;
+  }
+
+  .dark .metric-negative {
+    color: rgb(239 68 68 / var(--tw-text-opacity, 1)) !important;
+  }
+
+  .dark .metric-neutral {
+    color: rgb(22 163 74 / var(--tw-text-opacity, 1)) !important;
+  }
+
+  /* 简化的排行榜标签 */
+  .ranking-tab {
+    @apply px-4 py-2 rounded-lg transition-all duration-200 bg-secondary border border-border text-muted-foreground;
+  }
+
+  .ranking-tab.active {
+    @apply bg-primary text-primary-foreground border-primary;
+  }
+
+  /* 深色主题下的排行榜标签 */
+  .dark .ranking-tab {
+    @apply bg-gray-800 border-gray-600 text-gray-300;
+  }
+
+  .dark .ranking-tab.active {
+    @apply bg-blue-600 text-white border-blue-500;
+  }
+
+  /* 数据表格 */
+  .data-table {
+    @apply w-full border-collapse;
+  }
+
+  .data-table th {
+    @apply px-4 py-3 text-left font-semibold bg-muted text-muted-foreground;
+    border-bottom: 1px solid hsl(var(--border));
+  }
+
+  .data-table td {
+    @apply px-4 py-3;
+    border-bottom: 1px solid hsl(var(--border));
+  }
+
+  .data-table tr:hover {
+    @apply bg-muted/50;
+  }
+
+  /* 深色主题下的数据表格 */
+  .dark .data-table th {
+    background: oklch(0.15 0.008 285.885);
+    border-bottom: 1px solid oklch(0.25 0.01 285 / 0.3);
+  }
+
+  .dark .data-table td {
+    border-bottom: 1px solid oklch(0.25 0.01 285 / 0.2);
+  }
+
+  .dark .data-table tr:hover {
+    background: oklch(0.15 0.008 285.885 / 0.5);
+  }
+
+  /* 模态框动画 */
+  .animate-in {
+    animation: animate-in 0.2s ease-out;
+  }
+
+  .fade-in-0 {
+    animation: fade-in 0.2s ease-out;
+  }
+
+  .zoom-in-95 {
+    animation: zoom-in 0.2s ease-out;
+  }
+
+  @keyframes animate-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes zoom-in {
+    from {
+      transform: scale(0.95);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  /* Header组件样式 */
+  .header-logo {
+    @apply transition-opacity duration-200;
+  }
+
+  .header-logo:hover {
+    @apply opacity-80;
+  }
+
+  /* Logo容器优化 */
+  .header-logo-container {
+    @apply flex items-center justify-center;
+    min-width: 40px;
+    min-height: 24px;
+  }
+
+  .header-search-input {
+    @apply w-full px-4 py-2 pl-10 bg-background border border-border rounded-lg;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary;
+    @apply transition-colors duration-200;
+  }
+
+  .header-nav-link {
+    @apply flex items-center gap-2 px-3 py-2 rounded-lg;
+    @apply hover:bg-secondary transition-colors duration-200;
+    @apply text-foreground hover:text-primary;
+  }
+
+  .header-mobile-menu {
+    @apply md:hidden py-4 border-t border-border;
+    animation: slideDown 0.2s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* 响应式优化 */
+  @media (max-width: 768px) {
+    .ea-card {
+      @apply p-4;
+    }
+
+    .financial-card {
+      @apply p-4;
+    }
+
+    /* 移动端排行榜标签 */
+    .ranking-tab {
+      @apply px-2 py-1.5 text-xs;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ranking-tab span {
+      @apply hidden;
+    }
+
+    .ranking-tab.active span {
+      @apply inline;
+    }
+
+    /* 移动端模态框 */
+    .modal-content {
+      @apply mx-2 max-h-[95vh];
+    }
+
+    /* 移动端图表容器 */
+    .chart-container {
+      @apply px-2;
+    }
+
+    /* 移动端头部标题 */
+    .gradient-text {
+      @apply text-2xl;
+    }
+
+    /* 移动端控制按钮 */
+    .control-buttons {
+      @apply flex-col gap-2;
+    }
+
+    .control-buttons button {
+      @apply w-full justify-center;
+    }
+
+    /* 移动端Header样式 */
+    .header-logo .gradient-text {
+      @apply text-lg;
+    }
+  }
+
+  @media (max-width: 640px) {
+    /* 超小屏幕优化 */
+    .gradient-text {
+      @apply text-2xl;
+    }
+
+    .ranking-tab {
+      @apply px-2 py-1.5 text-xs;
+    }
+
+    .ea-card {
+      @apply p-3;
+    }
+
+    .financial-card {
+      @apply p-3;
+    }
+  }
+
+  /* BBTrading Logo 样式 - 复刻 ea.b123.com */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+
+  .logo-container:hover {
+    transform: scale(1.02);
+  }
+
+  .logo-container img {
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(26, 54, 93, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .logo-container:hover img {
+    box-shadow: 0 4px 12px rgba(26, 54, 93, 0.25);
+  }
+
+  .logo {
+    background: linear-gradient(45deg, #4027EF, #7700FF) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-family: 'Microsoft YaHei', Arial, sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 24px !important;
+    letter-spacing: -0.025em;
+    transition: all 0.3s ease;
+  }
+
+  .logo-container:hover .logo {
+    background: linear-gradient(45deg, #5038FF, #8811FF) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+  }
+
+  /* 深色模式下的logo适配 */
+  .dark .logo {
+    background: linear-gradient(45deg, #4027EF, #7700FF) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+  }
+
+  .dark .logo-container:hover .logo {
+    background: linear-gradient(45deg, #5038FF, #8811FF) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+  }
+
+  .dark .logo-container img {
+    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.2);
+  }
+
+  .dark .logo-container:hover img {
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+  }
+
+  /* 排行榜前三名特殊样式 */
+  .rank-1-card {
+    position: relative;
+    background: var(--rank-1-bg) !important;
+    border: 2px solid var(--rank-1-border) !important;
+    box-shadow: 0 0 30px var(--rank-1-glow), 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+    transform: scale(1.02);
+    z-index: 10;
+  }
+
+  .rank-1-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--rank-1-bg);
+    border-radius: inherit;
+    z-index: -1;
+    animation: rank-1-glow 2s ease-in-out infinite alternate;
+  }
+
+  .rank-2-card {
+    position: relative;
+    background: var(--rank-2-bg) !important;
+    border: 2px solid var(--rank-2-border) !important;
+    box-shadow: 0 0 20px var(--rank-2-glow), 0 6px 24px rgba(0, 0, 0, 0.25) !important;
+    transform: scale(1.01);
+    z-index: 9;
+  }
+
+  .rank-2-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--rank-2-bg);
+    border-radius: inherit;
+    z-index: -1;
+    animation: rank-2-glow 2.5s ease-in-out infinite alternate;
+  }
+
+  .rank-3-card {
+    position: relative;
+    background: var(--rank-3-bg) !important;
+    border: 2px solid var(--rank-3-border) !important;
+    box-shadow: 0 0 15px var(--rank-3-glow), 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+    z-index: 8;
+  }
+
+  .rank-3-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--rank-3-bg);
+    border-radius: inherit;
+    z-index: -1;
+    animation: rank-3-glow 3s ease-in-out infinite alternate;
+  }
+
+  /* 前三名排名徽章特殊样式 */
+  .rank-1-badge {
+    background: var(--rank-1-bg) !important;
+    color: #000 !important;
+    font-weight: 900 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 15px var(--rank-1-glow);
+    animation: rank-badge-pulse 1.5s ease-in-out infinite;
+  }
+
+  .rank-2-badge {
+    background: var(--rank-2-bg) !important;
+    color: #000 !important;
+    font-weight: 800 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px var(--rank-2-glow);
+  }
+
+  .rank-3-badge {
+    background: var(--rank-3-bg) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 8px var(--rank-3-glow);
+  }
+
+  /* 前三名指标数字特殊样式 - 浅色主题 */
+  .rank-1-metric {
+    color: rgb(255, 215, 0) !important; /* 金色 */
+    font-weight: 900;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  }
+
+  .rank-2-metric {
+    color: rgb(192, 192, 192) !important; /* 银色 */
+    font-weight: 900;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  }
+
+  .rank-3-metric {
+    color: rgb(205, 127, 50) !important; /* 铜色 */
+    font-weight: 900;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  }
+
+  /* 前三名指标数字特殊样式 - 深色主题 */
+  .dark .rank-1-metric {
+    color: rgb(255, 215, 0) !important; /* 金色 - 深色主题下更亮 */
+    font-weight: 900;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  }
+
+  .dark .rank-2-metric {
+    color: rgb(220, 220, 220) !important; /* 银色 - 深色主题下更亮 */
+    font-weight: 900;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  }
+
+  .dark .rank-3-metric {
+    color: rgb(255, 165, 79) !important; /* 铜色 - 深色主题下更亮 */
+    font-weight: 900;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  }
+
+  /* 动画效果 */
+  @keyframes rank-1-glow {
+    0% { box-shadow: 0 0 30px var(--rank-1-glow), 0 8px 32px rgba(0, 0, 0, 0.3); }
+    100% { box-shadow: 0 0 40px var(--rank-1-glow), 0 12px 40px rgba(0, 0, 0, 0.4); }
+  }
+
+  @keyframes rank-2-glow {
+    0% { box-shadow: 0 0 20px var(--rank-2-glow), 0 6px 24px rgba(0, 0, 0, 0.25); }
+    100% { box-shadow: 0 0 25px var(--rank-2-glow), 0 8px 30px rgba(0, 0, 0, 0.3); }
+  }
+
+  @keyframes rank-3-glow {
+    0% { box-shadow: 0 0 15px var(--rank-3-glow), 0 4px 16px rgba(0, 0, 0, 0.2); }
+    100% { box-shadow: 0 0 20px var(--rank-3-glow), 0 6px 20px rgba(0, 0, 0, 0.25); }
+  }
+
+  @keyframes rank-badge-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  @keyframes metric-shine {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.2); }
+  }
+
+  /* 侧边栏广告位样式 - 已移除所有滚动相关样式 */
+  /* 注意：原有的sidebar-ad相关样式已被移除，现在使用内联样式避免滚动条 */
+
+  @keyframes slideInFromSide {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  /* 响应式适配 */
+  @media (max-width: 1280px) {
+    .sidebar-ad-container {
+      width: 160px;
+      height: 680px;
+      max-width: 160px;
+    }
+    
+    .sidebar-ad-list {
+      height: calc(680px - 40px);
+      @apply gap-4 p-3;
+    }
+    
+    .sidebar-ad-item {
+      min-height: 280px;
+      @apply p-3;
+    }
+    
+    .sidebar-ad-item-title {
+      @apply text-sm mb-2;
+    }
+    
+    .sidebar-ad-item-description {
+      @apply text-xs mb-3;
+      -webkit-line-clamp: 3;
+    }
+    
+    .sidebar-ad-item-metrics {
+      @apply gap-2 py-2 mb-3;
+    }
+    
+    .sidebar-ad-item-action {
+      @apply pt-2;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .sidebar-ad-container {
+      @apply hidden;
+    }
+    
+    .sidebar-ad-minimized {
+      @apply w-10 h-10;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .sidebar-ad-container,
+    .sidebar-ad-minimized {
+      @apply hidden;
+    }
+  }
+
+  /* 触摸设备优化 */
+  @media (hover: none) and (pointer: coarse) {
+    .ea-card:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .ea-card:active {
+      transform: scale(0.98);
+      transition: transform 0.1s ease;
+    }
+
+    .ranking-tab:hover {
+      background-color: inherit;
+    }
+
+    .logo-container:hover {
+      transform: none;
+    }
+
+    .logo-container:active {
+      transform: scale(0.98);
+    }
+
+    .sidebar-ad-container:hover {
+      transform: none;
+      border-color: inherit;
+      box-shadow: inherit;
+    }
+
+    .sidebar-ad-minimized:hover {
+      transform: none;
+      box-shadow: inherit;
+    }
+  }
+}

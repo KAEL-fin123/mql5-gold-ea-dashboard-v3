@@ -1,0 +1,56 @@
+{
+  "name": "mql5-gold-ea-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:setup": "echo '请在Supabase控制台执行database/schema.sql文件'",
+    "db:test": "node scripts/test-db.js",
+    "type-check": "tsc --noEmit",
+    "mcp:init": "node scripts/init-mcp.js",
+    "mcp:test": "node -e \"require('./src/lib/mcp-client').createIssueForSuggestion({ea_name:'测试EA',reason:'测试GitHub MCP集成',contact:'test@example.com'}).then(()=>console.log('测试成功')).catch(console.error)\"",
+    "migrate:tailwind": "node scripts/migrate-tailwind-v4-to-v3.js",
+    "migrate:backup": "mkdir -p backup && cp package.json backup/package.json.backup && cp postcss.config.mjs backup/postcss.config.mjs.backup && cp src/app/globals.css backup/globals.css.backup"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.1.1",
+    "@modelcontextprotocol/sdk": "^1.12.2",
+    "@supabase/supabase-js": "^2.50.0",
+    "@tanstack/react-query": "^5.80.6",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "lucide-react": "^0.513.0",
+    "next": "15.3.3",
+    "pg": "^8.16.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.57.0",
+    "recharts": "^2.15.3",
+    "tailwind-merge": "^3.3.0",
+    "zod": "^3.25.57",
+    "zustand": "^5.0.5"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tanstack/react-query-devtools": "^5.80.7",
+    "@types/node": "^20",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "autoprefixer": "^10.4.19",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.8.0",
+    "eslint-config-next": "^15.0.0-rc.0",
+    "postcss": "^8.4.40",
+    "tailwindcss": "^3.4.1",
+    "tw-animate-css": "^1.3.4",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=20.11.0",
+    "npm": ">=8.0.0"
+  }
+}

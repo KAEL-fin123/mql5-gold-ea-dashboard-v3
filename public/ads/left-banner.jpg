@@ -1,0 +1,48 @@
+<svg width="300" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d2d2d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="600" fill="url(#bgGradient)" rx="10"/>
+  
+  <!-- Border -->
+  <rect x="2" y="2" width="296" height="596" fill="none" stroke="url(#goldGradient)" stroke-width="2" rx="8"/>
+  
+  <!-- Title -->
+  <text x="150" y="50" text-anchor="middle" fill="url(#goldGradient)" font-family="Arial, sans-serif" font-size="24" font-weight="bold">黄金交易专家</text>
+  
+  <!-- Subtitle -->
+  <text x="150" y="80" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="14">专业外汇经纪商</text>
+  
+  <!-- Gold icon -->
+  <circle cx="150" cy="150" r="40" fill="url(#goldGradient)"/>
+  <text x="150" y="160" text-anchor="middle" fill="#1a1a1a" font-family="Arial, sans-serif" font-size="30" font-weight="bold">Au</text>
+  
+  <!-- Features -->
+  <text x="30" y="250" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">✓ 低点差交易</text>
+  <text x="30" y="280" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">✓ 快速执行</text>
+  <text x="30" y="310" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">✓ 24/7 支持</text>
+  <text x="30" y="340" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">✓ 监管合规</text>
+  
+  <!-- Promotion -->
+  <rect x="20" y="380" width="260" height="80" fill="url(#goldGradient)" rx="5"/>
+  <text x="150" y="405" text-anchor="middle" fill="#1a1a1a" font-family="Arial, sans-serif" font-size="18" font-weight="bold">开户即送</text>
+  <text x="150" y="430" text-anchor="middle" fill="#1a1a1a" font-family="Arial, sans-serif" font-size="24" font-weight="bold">$100</text>
+  <text x="150" y="450" text-anchor="middle" fill="#1a1a1a" font-family="Arial, sans-serif" font-size="14">交易赠金</text>
+  
+  <!-- CTA Button -->
+  <rect x="50" y="500" width="200" height="50" fill="none" stroke="url(#goldGradient)" stroke-width="2" rx="25"/>
+  <text x="150" y="530" text-anchor="middle" fill="url(#goldGradient)" font-family="Arial, sans-serif" font-size="16" font-weight="bold">立即开户</text>
+  
+  <!-- Footer -->
+  <text x="150" y="580" text-anchor="middle" fill="#888888" font-family="Arial, sans-serif" font-size="10">风险提示：外汇交易存在风险</text>
+</svg>
