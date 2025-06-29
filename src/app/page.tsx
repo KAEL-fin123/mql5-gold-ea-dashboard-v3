@@ -151,7 +151,7 @@ export default function Home() {
               MQL5 GOLD EA 榜单
             </h1>
             <p className="text-muted-foreground text-lg">
-              专业黄金EA交易系统排行榜 - 实时数据，精准分析
+              BBTrading黄金EA分析站｜看穿每一个黄金EA的真实价值
             </p>
             {searchQuery && (
               <p className="text-sm text-muted-foreground mt-2">
