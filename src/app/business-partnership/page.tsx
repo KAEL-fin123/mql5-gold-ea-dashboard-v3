@@ -174,7 +174,7 @@ export default function BusinessPartnershipPage() {
       <footer className="border-t border-border bg-card/30 mt-16">
         <div className="container mx-auto px-4 py-6">
           <div className="text-center text-muted-foreground text-sm">
-            <p>© 2025 MQL5 GOLD EA Dashboard. 专业的黄金EA交易分析平台</p>
+            <p>© 2025 BBTrading 大白交易助手 | 用数据说话，让每一个EA交易决策更稳健</p>
           </div>
         </div>
       </footer>
