@@ -18,6 +18,13 @@ type RankingType = 'win_rate' | 'drawdown' | 'max_risk_reward' | 'avg_risk_rewar
 // 排行榜配置
 const rankingTabs = [
   {
+    id: 'annual_return' as RankingType,
+    name: '年化榜',
+    icon: Calendar,
+    description: '按年化收益降序排列',
+    color: 'text-accent'
+  },
+  {
     id: 'win_rate' as RankingType,
     name: '胜率榜',
     icon: TrendingUp,
@@ -46,13 +53,6 @@ const rankingTabs = [
     color: 'text-primary'
   },
   {
-    id: 'annual_return' as RankingType,
-    name: '年化榜',
-    icon: Calendar,
-    description: '按年化收益降序排列',
-    color: 'text-accent'
-  },
-  {
     id: 'monthly_return' as RankingType,
     name: '本月收益榜',
     icon: DollarSign,
@@ -62,7 +62,7 @@ const rankingTabs = [
 ];
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<RankingType>('win_rate');
+  const [activeTab, setActiveTab] = useState<RankingType>('annual_return');
   const [year] = useState(2025);
   const [month] = useState<number | null>(null);
   const [selectedEA, setSelectedEA] = useState<EAData | null>(null);
