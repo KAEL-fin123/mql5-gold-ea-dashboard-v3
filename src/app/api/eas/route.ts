@@ -99,6 +99,28 @@ export async function GET(request: NextRequest) {
     // 应用排序
     query = query.order(sortConfig.column, { ascending: sortConfig.order === 'asc' });
 
+    // 首先获取总数（不应用limit）
+    let countQuery = supabase
+      .from('ea_stats')
+      .select('ea_id', { count: 'exact', head: true })
+      .eq('year', year);
+
+    if (month) {
+      countQuery = countQuery.eq('month', month);
+    } else {
+      countQuery = countQuery.is('month', null);
+    }
+
+    const { count: totalCount, error: countError } = await countQuery;
+
+    if (countError) {
+      console.error('Supabase计数查询错误:', countError);
+      return NextResponse.json(
+        { error: '数据库查询失败' },
+        { status: 500 }
+      );
+    }
+
     // 应用限制
     if (limit > 0) {
       query = query.limit(limit);
@@ -121,7 +143,8 @@ export async function GET(request: NextRequest) {
           message: '暂无数据',
           sortBy,
           year,
-          month 
+          month,
+          total: totalCount || 0
         },
         { status: 200 }
       );
@@ -154,7 +177,7 @@ export async function GET(request: NextRequest) {
       sortBy,
       year,
       month,
-      total: transformedData.length
+      total: totalCount || 0
     });
 
   } catch (error) {

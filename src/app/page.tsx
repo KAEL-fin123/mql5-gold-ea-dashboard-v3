@@ -70,6 +70,7 @@ export default function Home() {
   const [isSuggestionFormOpen, setIsSuggestionFormOpen] = useState(false);
 
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [showAll, setShowAll] = useState<boolean>(false);
 
   // 使用TanStack Query获取EA数据
   const {
@@ -81,7 +82,7 @@ export default function Home() {
     sortBy: activeTab,
     year,
     month,
-    limit: 10
+    limit: showAll ? 1000 : 10  // 显示全部时设置一个较大的limit
   });
 
   // 获取EA数据
@@ -103,6 +104,17 @@ export default function Home() {
   // 处理标签切换
   const handleTabChange = (tabId: RankingType) => {
     setActiveTab(tabId);
+    setShowAll(false);  // 切换标签时重置为显示前10个
+  };
+
+  // 处理加载更多
+  const handleLoadMore = () => {
+    setShowAll(true);
+  };
+
+  // 处理收起
+  const handleShowLess = () => {
+    setShowAll(false);
   };
 
   // 刷新数据
@@ -279,16 +291,52 @@ export default function Home() {
             </div>
           ) : (
             /* EA卡片列表 */
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredEAData.map((ea) => (
-                <EACard
-                  key={ea.id}
-                  ea={ea}
-                  rankingType={activeTab}
-                  onClick={() => handleEAClick(ea)}
-                />
-              ))}
-            </div>
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {filteredEAData.map((ea) => (
+                  <EACard
+                    key={ea.id}
+                    ea={ea}
+                    rankingType={activeTab}
+                    onClick={() => handleEAClick(ea)}
+                  />
+                ))}
+              </div>
+              
+              {/* 加载更多按钮 */}
+              {!searchQuery && eaResponse?.total && eaResponse.total > 10 && (
+                <div className="text-center mt-8">
+                  {!showAll ? (
+                    <div className="space-y-4">
+                      <p className="text-muted-foreground text-sm">
+                        显示前 {Math.min(10, eaResponse.total)} 个，共 {eaResponse.total} 个EA
+                      </p>
+                      <button
+                        onClick={handleLoadMore}
+                        disabled={loading}
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50 font-medium"
+                      >
+                        <Plus className="w-4 h-4" />
+                        加载全部 ({eaResponse.total - 10} 个更多)
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      <p className="text-muted-foreground text-sm">
+                        已显示全部 {eaResponse.total} 个EA
+                      </p>
+                      <button
+                        onClick={handleShowLess}
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80 transition-colors font-medium"
+                      >
+                        <TrendingUp className="w-4 h-4 rotate-180" />
+                        收起显示前10个
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
+            </>
           )}
         </div>
       </main>
