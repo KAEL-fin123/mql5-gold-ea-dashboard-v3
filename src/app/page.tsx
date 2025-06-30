@@ -47,7 +47,7 @@ const rankingTabs = [
   },
   {
     id: 'avg_risk_reward' as RankingType,
-    name: '最小盈亏比榜',
+    name: '平均盈亏比榜',
     icon: BarChart3,
     description: '按平均盈亏比降序排列',
     color: 'text-primary'
