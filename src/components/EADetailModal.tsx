@@ -14,7 +14,7 @@ import {
   X
 } from 'lucide-react';
 import { useState } from 'react';
-import Image from 'next/image';
+// 注意：不再使用 Next.js Image 组件以避免 Vercel 图片优化配额消耗
 import { EAData } from './EACard';
 
 interface EADetailModalProps {
@@ -89,22 +89,22 @@ export default function EADetailModal({ ea, isOpen, onClose, rankingType = 'win_
             {/* EA Logo */}
             <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center">
               {ea.logo_url ? (
-                <Image
+                <img
                   src={ea.logo_url}
                   alt={ea.name}
                   width={32}
                   height={32}
                   className="w-8 h-8 rounded object-cover"
+                  loading="lazy"
                   onError={(e) => {
-                    e.currentTarget.style.display = 'none';
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://rllpuaybvztqqqhnvaok.supabase.co/storage/v1/object/public/ea-logos/placeholder.svg';
                   }}
                 />
               ) : (
                 <BarChart3 className="w-6 h-6 text-primary" />
               )}
-              {ea.logo_url && (
-                <BarChart3 className="w-6 h-6 text-primary hidden" />
-              )}
+
             </div>
 
             <div>

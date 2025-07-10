@@ -1,5 +1,5 @@
 import { TrendingUp, TrendingDown, Target, BarChart3, Calendar } from 'lucide-react';
-import Image from 'next/image';
+// 注意：不再使用 Next.js Image 组件以避免 Vercel 图片优化配额消耗
 
 // EA数据类型定义
 export interface EAData {
@@ -103,12 +103,17 @@ export default function EACard({ ea, rankingType, onClick }: EACardProps) {
       <div className="flex items-center justify-center gap-6 py-2">
         {/* EA头像 */}
         <div className="flex-shrink-0">
-          <Image
+          <img
             src={ea.logo_url || 'https://rllpuaybvztqqqhnvaok.supabase.co/storage/v1/object/public/ea-logos/placeholder.svg'}
             alt={`${ea.name} Logo`}
             width={80}
             height={80}
             className="rounded-full object-cover"
+            loading="lazy"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = 'https://rllpuaybvztqqqhnvaok.supabase.co/storage/v1/object/public/ea-logos/placeholder.svg';
+            }}
           />
         </div>
         
